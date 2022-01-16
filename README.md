@@ -7,7 +7,7 @@ select ulid('2022-01-01');     -- 017e12ef-9c00-0000-0000-000000000000
 select ulid();                 -- 017e61c1-d833-4af7-70c7-8444ae1d207a
 ```
 
-Used for monotonic ids and for partitioning tables using on them
+Used for monotonic ids and for partitioning tables using them
 
 ```plpgsql
 CREATE TABLE "table" (
