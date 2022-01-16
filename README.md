@@ -3,8 +3,8 @@
 PostgreSQL function for generating ULID as UUID on  plpgsql
 
 ```sql
-select ulid();                          --017e61c1-d833-4af7-70c7-8444ae1d207a
-select ulid('2022-01-16 05:48:00');     --017e616d-9a80-0000-0000-000000000000
+select ulid();                 --017e61c1-d833-4af7-70c7-8444ae1d207a
+select ulid('2022-01-01');     --017e12ef-9c00-0000-0000-000000000000
 ```
 
 Used for monotonic ids and for partitioning by it
