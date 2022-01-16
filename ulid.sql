@@ -9,16 +9,16 @@ DECLARE
 
   unix_time  BIGINT;
   ulid       BYTEA;
-  now		 timestamptz;
+  at_now		 timestamptz;
 BEGIN
   if (dt is NULL) then
-    now = current_timestamp;
+    at_now = current_timestamp;
   else
-  	now = dt;
+    at_now = dt;
   end if;
 
   -- 6 timestamp bytes
-  unix_time = (EXTRACT(EPOCH FROM now) * 1000)::BIGINT;
+  unix_time = (EXTRACT(EPOCH FROM at_now) * 1000)::BIGINT;
   timestamp = SET_BYTE(timestamp, 0, (unix_time >> 40)::BIT(8)::INTEGER);
   timestamp = SET_BYTE(timestamp, 1, (unix_time >> 32)::BIT(8)::INTEGER);
   timestamp = SET_BYTE(timestamp, 2, (unix_time >> 24)::BIT(8)::INTEGER);
@@ -30,7 +30,7 @@ BEGIN
   if (dt is NULL) then
   	ulid = timestamp || gen_random_bytes(10);
   else
-	ulid = timestamp || '\x00000000000000000000';
+	  ulid = timestamp || '\x00000000000000000000';
   end if;
 
   output = CAST(substring(ulid::text from 3) AS uuid);
