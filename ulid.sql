@@ -9,7 +9,7 @@ DECLARE
 
   unix_time  BIGINT;
   ulid       BYTEA;
-  at_now		 timestamptz;
+  at_now	timestamptz;
 BEGIN
   if (dt is NULL) then
   	at_now = current_timestamp;
@@ -30,7 +30,7 @@ BEGIN
   if (dt is NULL) then
   	ulid = timestamp || gen_random_bytes(10);
   else
-	  ulid = timestamp || '\x00000000000000000000';
+  	ulid = timestamp || '\x00000000000000000000';
   end if;
 
   output = CAST(substring(ulid::text from 3) AS uuid);
