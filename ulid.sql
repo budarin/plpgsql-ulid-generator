@@ -9,7 +9,7 @@ DECLARE
 
   unix_time  BIGINT;
   ulid       BYTEA;
-  at_now	timestamptz;
+  at_now  timestamptz;
 BEGIN
   if (dt is NULL) then
   	at_now = current_timestamp;
