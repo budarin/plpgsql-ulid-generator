@@ -3,13 +3,13 @@ RETURNS uuid
 AS $$
 DECLARE
   -- Crockford's Base32
-  encoding   BYTEA = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
-  timestamp  BYTEA = E'\\000\\000\\000\\000\\000\\000';
-  output     uuid;
+  encoding    BYTEA = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+  timestamp   BYTEA = E'\\000\\000\\000\\000\\000\\000';
+  output      uuid;
 
-  unix_time  BIGINT;
-  ulid       BYTEA;
-  at_now    timestamptz;
+  unix_time   BIGINT;
+  ulid        BYTEA;
+  at_now      timestamptz;
 BEGIN
   if (dt is NULL) then
   	at_now = current_timestamp;
