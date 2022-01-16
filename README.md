@@ -15,6 +15,7 @@ CREATE TABLE "table" (
   ...
 ) partition by range (id);
 
+
 CREATE TABLE table_2021 partition of "table" for values
   from
     (ulid('2021-01-01'))
