@@ -11,7 +11,7 @@ Used for monotonic ids and for partitioning by it
 
 ```plpgsql
 CREATE TABLE "table" (
-  id text primary key not null default generate_ulid(now(), true),
+  id text primary key not null default ulid(),
   ...
 ) partition by range (id);
 
