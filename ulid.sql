@@ -12,9 +12,9 @@ DECLARE
   at_now		 timestamptz;
 BEGIN
   if (dt is NULL) then
-    at_now = current_timestamp;
+  	at_now = current_timestamp;
   else
-    at_now = dt;
+  	at_now = dt;
   end if;
 
   -- 6 timestamp bytes
